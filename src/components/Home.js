@@ -150,8 +150,8 @@ const services = [
 
 const teamMembers = [
   {
-    name: 'Director 1',
-    position: 'Director',
+    name: 'Mohit Baliyan',
+    position: 'Director 1',
     image: '/website_rw.jpg',
   },
 ];
@@ -244,7 +244,7 @@ const Home = () => {
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={6}>
               <Typography variant="h2" component="h1" gutterBottom>
-                Welcome to BFS
+                Welcome to Baliyan Fintel Services
               </Typography>
               <Typography variant="h5" paragraph sx={{ opacity: 0.9 }}>
                 We provide innovative solutions for your business needs. Our team of experts is dedicated to helping you achieve your goals.
@@ -418,7 +418,7 @@ const Home = () => {
                 We are a team of passionate professionals dedicated to delivering excellence
               </Typography>
               <Typography paragraph>
-                At BFS, we specialize in providing top-tier BPO (Business Process Outsourcing) and comprehensive Financial Services. Our BPO solutions help businesses streamline operations, reduce costs, and focus on core activities, while our Financial Services offer tailored solutions in insurance, mutual funds, loans, and credit management to help you achieve your financial goals with confidence.
+                At Baliyan Fintel Services, we specialize in providing top-tier BPO (Business Process Outsourcing) and comprehensive Financial Services. Our BPO solutions help businesses streamline operations, reduce costs, and focus on core activities, while our Financial Services offer tailored solutions in insurance, mutual funds, loans, and credit management to help you achieve your financial goals with confidence.
               </Typography>
               <Typography paragraph>
                 With years of experience and a commitment to innovation, we ensure that every client receives personalized attention and solutions that drive growth and success. Our team of experts is here to support you every step of the way.
@@ -581,14 +581,11 @@ const Home = () => {
                     letterSpacing: 1,
                   }}
                 >
-                  BFS
+                  Baliyan Fintel Services
                 </Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                  Business Finance Solutions
-                </Typography>
               </Box>
               <Typography variant="body1" sx={{ mb: 2, color: 'text.secondary' }}>
-                BFS is committed to assisting you with all your business and finance needs. Contact us today to get started on a customized solution. We look forward to working with you!
+                Baliyan Fintel Services is committed to assisting you with all your business and finance needs. Contact us today to get started on a customized solution. We look forward to working with you!
               </Typography>
             </Grid>
             <Grid item xs={12} md={2} lg={2}>
@@ -634,7 +631,7 @@ const Home = () => {
           <Divider sx={{ my: 4 }} />
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
             <Typography variant="body2" color="text.secondary">
-              ©2025 BFS. All Rights Reserved.
+              ©2025 Baliyan Fintel Services. All Rights Reserved.
             </Typography>
             <Box sx={{ display: 'flex', gap: 2 }}>
               <FooterLink href="#">Terms Of Services</FooterLink>
