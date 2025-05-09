@@ -13,6 +13,8 @@ import {
   Divider,
   Avatar,
   IconButton,
+  AppBar,
+  Toolbar,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -31,6 +33,7 @@ import DialogActions from '@mui/material/DialogActions';
 import Slide from '@mui/material/Slide';
 import CloseIcon from '@mui/icons-material/Close';
 import SocialMediaSidebar from "./SocialMediaSideBar"
+import MenuIcon from '@mui/icons-material/Menu';
 
 const HeroSection = styled(Box)(({ theme }) => ({
   background: 'linear-gradient(135deg, #2C3E50 0%, #3498DB 100%)',
@@ -244,8 +247,9 @@ const Home = () => {
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={6}>
               <Typography variant="h2" component="h1" gutterBottom>
-                Welcome to Baliyan Fintel Services
+                Welcome to Baliyan Fintech Services Private Limited
               </Typography>
+
               <Typography variant="h5" paragraph sx={{ opacity: 0.9 }}>
                 We provide innovative solutions for your business needs. Our team of experts is dedicated to helping you achieve your goals.
               </Typography>
@@ -581,7 +585,15 @@ const Home = () => {
                     letterSpacing: 1,
                   }}
                 >
-                  Baliyan Fintel Services
+                  BFS
+                </Box>
+                <Box>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+                    Baliyan Fintech Services
+                  </Typography>
+                  <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.7)' }}>
+                    Private Limited
+                  </Typography>
                 </Box>
               </Box>
               <Typography variant="body1" sx={{ mb: 2, color: 'text.secondary' }}>
