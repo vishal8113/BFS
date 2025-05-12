@@ -531,7 +531,7 @@ const Home = () => {
                     <Box>
                       <Typography variant="h6" gutterBottom>Phone</Typography>
                       <Typography paragraph sx={{ color: 'rgba(255,255,255,0.8)' }}>
-                        +91 8057883947
+                        +91 9368664563
                       </Typography>
                     </Box>
                   </ContactIcon>
