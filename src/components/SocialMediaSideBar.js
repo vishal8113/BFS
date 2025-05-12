@@ -28,7 +28,7 @@ const SocialMediaSidebar = () => {
         { icon: <XIcon />, label: 'X', url: 'https://x.com/MOHITKUMAR71333?t=43fuQLvqFaCBCE9hgZU0Vw&s=08' },
         { icon: <LinkedInIcon />, label: 'LinkedIn', url: 'https://www.linkedin.com/in/mohit-baliyan-8a1262193?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
         { icon: <InstagramIcon />, label: 'Instagram', url: 'https://instagram.com' },
-        { icon: <WhatsAppIcon />, label: 'WhatsApp', url: 'https://wa.me/1234567890' },
+        { icon: <WhatsAppIcon />, label: 'WhatsApp', url: 'https://wa.me/+919368664563' },
       ].map(({ icon, label, url }, index) => (
         <Tooltip title={label} placement="right" key={index}>
           <Fab

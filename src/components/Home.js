@@ -646,21 +646,21 @@ const Home = () => {
                 onClick={() => window.open('https://x.com/MOHITKUMAR71333?t=43fuQLvqFaCBCE9hgZU0Vw&s=08', '_blank')}><XIcon /></IconButton>
                 <IconButton sx={{ color: 'secondary.main' }}><InstagramIcon /></IconButton>
               </Box>
-              <Typography variant="caption" sx={{ mt: 2, display: 'block', color: 'text.secondary' }}>
+              <Typography variant="caption" sx={{ mt: 2, display: 'block', color: 'rgba(255,255,255,0.9)', fontSize: '0.9rem', fontWeight: 500 }}>
               CIN/LLPIN/FCRN U70200UP2025PTC221767
               Company No. 221767
               </Typography>
             </Grid>
           </Grid>
-          <Divider sx={{ my: 4 }} />
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Typography variant="body2" color="text.secondary">
+          <Divider sx={{ my: 4, bgcolor: 'rgba(255,255,255,0.1)' }} />
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
+            <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', fontWeight: 500 }}>
               ©2025 Baliyan Fintel Services. All Rights Reserved.
             </Typography>
-            <Box sx={{ display: 'flex', gap: 2 }}>
-              <FooterLink href="#">Terms Of Services</FooterLink>
-              <FooterLink href="#">Privacy Policy</FooterLink>
-              <FooterLink href="#">Cookie Policy</FooterLink>
+            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+              <FooterLink href="#" sx={{ fontSize: '0.875rem' }}>Terms Of Services</FooterLink>
+              <FooterLink href="#" sx={{ fontSize: '0.875rem' }}>Privacy Policy</FooterLink>
+              <FooterLink href="#" sx={{ fontSize: '0.875rem' }}>Cookie Policy</FooterLink>
             </Box>
           </Box>
         </Container>
