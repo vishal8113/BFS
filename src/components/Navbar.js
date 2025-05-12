@@ -87,7 +87,7 @@ const Navbar = () => {
             }}
           >
             <Box component="img" src="/logo.jpg" alt="BFS Logo" sx={{ height: 36, width: 'auto', mr: 1, borderRadius: 1, boxShadow: 1, bgcolor: 'white' }} />
-            Baliyan Fintel Services Private Limited
+            Baliyan Fintech Services Private Limited
           </Typography>
           {!isMobile && (
             <Box>

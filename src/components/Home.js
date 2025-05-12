@@ -22,7 +22,6 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import SendIcon from '@mui/icons-material/Send';
@@ -33,7 +32,7 @@ import DialogActions from '@mui/material/DialogActions';
 import Slide from '@mui/material/Slide';
 import CloseIcon from '@mui/icons-material/Close';
 import SocialMediaSidebar from "./SocialMediaSideBar"
-import MenuIcon from '@mui/icons-material/Menu';
+import XIcon from '@mui/icons-material/X';
 
 const HeroSection = styled(Box)(({ theme }) => ({
   background: 'linear-gradient(135deg, #2C3E50 0%, #3498DB 100%)',
@@ -154,7 +153,7 @@ const services = [
 const teamMembers = [
   {
     name: 'Mohit Baliyan',
-    position: 'Director 1',
+    position: 'Director',
     image: '/website_rw.jpg',
   },
 ];
@@ -401,7 +400,7 @@ const Home = () => {
                     <li>Mutual Fund</li>
                     <li>Loans</li>
                     <li>Credit Cards</li>
-                    <li>Loan Against Mutual Fund</li>
+                    <li>FD</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -422,7 +421,7 @@ const Home = () => {
                 We are a team of passionate professionals dedicated to delivering excellence
               </Typography>
               <Typography paragraph>
-                At Baliyan Fintel Services, we specialize in providing top-tier BPO (Business Process Outsourcing) and comprehensive Financial Services. Our BPO solutions help businesses streamline operations, reduce costs, and focus on core activities, while our Financial Services offer tailored solutions in insurance, mutual funds, loans, and credit management to help you achieve your financial goals with confidence.
+                At Baliyan Fintech Services, we specialize in providing top-tier BPO (Business Process Outsourcing) and comprehensive Financial Services. Our BPO solutions help businesses streamline operations, reduce costs, and focus on core activities, while our Financial Services offer tailored solutions in insurance, mutual funds, loans, and credit management to help you achieve your financial goals with confidence.
               </Typography>
               <Typography paragraph>
                 With years of experience and a commitment to innovation, we ensure that every client receives personalized attention and solutions that drive growth and success. Our team of experts is here to support you every step of the way.
@@ -522,7 +521,7 @@ const Home = () => {
                     <Box>
                       <Typography variant="h6" gutterBottom>Address</Typography>
                       <Typography paragraph sx={{ color: 'rgba(255,255,255,0.8)' }}>
-                      Balaji complex Sundarpuram Golbag chauraha<br />Moradabad road, Bijnor, Uttar Pradesh, 246701<br />India
+                      Rahul Plaza Bhaniyawala, <br />Dehradun, Uttarakhand<br />India
                       </Typography>
                     </Box>
                   </ContactIcon>
@@ -559,8 +558,13 @@ const Home = () => {
                 </Box>
                 <Box sx={{ mt: 2, display: 'flex', gap: 2 }}>
                   <IconButton sx={{ bgcolor: 'rgba(255,255,255,0.1)', color: 'white', '&:hover': { bgcolor: 'rgba(255,255,255,0.2)' } }}><FacebookIcon /></IconButton>
-                  <IconButton sx={{ bgcolor: 'rgba(255,255,255,0.1)', color: 'white', '&:hover': { bgcolor: 'rgba(255,255,255,0.2)' } }}><TwitterIcon /></IconButton>
-                  <IconButton sx={{ bgcolor: 'rgba(255,255,255,0.1)', color: 'white', '&:hover': { bgcolor: 'rgba(255,255,255,0.2)' } }}><LinkedInIcon /></IconButton>
+                  <IconButton sx={{ bgcolor: 'rgba(255,255,255,0.1)', color: 'white', '&:hover': { bgcolor: 'rgba(255,255,255,0.2)' } }}><XIcon /></IconButton>
+                  <IconButton 
+                    sx={{ bgcolor: 'rgba(255,255,255,0.1)', color: 'white', '&:hover': { bgcolor: 'rgba(255,255,255,0.2)' } }}
+                    onClick={() => window.open('https://www.linkedin.com/in/mohit-baliyan-8a1262193?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', '_blank')}
+                  >
+                    <LinkedInIcon />
+                  </IconButton>
                   <IconButton sx={{ bgcolor: 'rgba(255,255,255,0.1)', color: 'white', '&:hover': { bgcolor: 'rgba(255,255,255,0.2)' } }}><InstagramIcon /></IconButton>
                 </Box>
               </ContactInfoCard>
@@ -597,7 +601,7 @@ const Home = () => {
                 </Box>
               </Box>
               <Typography variant="body1" sx={{ mb: 2, color: 'text.secondary' }}>
-                Baliyan Fintel Services is committed to assisting you with all your business and finance needs. Contact us today to get started on a customized solution. We look forward to working with you!
+                Baliyan Fintech Services is committed to assisting you with all your business and finance needs. Contact us today to get started on a customized solution. We look forward to working with you!
               </Typography>
             </Grid>
             <Grid item xs={12} md={2} lg={2}>
@@ -619,7 +623,7 @@ const Home = () => {
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                 <LocationOnIcon sx={{ mr: 1, color: 'secondary.main' }} />
-                <Typography variant="body2">Balaji complex Sundarpuram Golbag chauraha Moradabad road, Bijnor, Uttar Pradesh, 246701, India</Typography>
+                <Typography variant="body2">Corporate address: Rahul Plaza Bhaniyawala, dehradun, uttrakhand, india</Typography>
               </Box>
             </Grid>
             <Grid item xs={12} md={3} lg={4}>
@@ -631,19 +635,27 @@ const Home = () => {
                 </NewsletterButton>
               </Box>
               <Box sx={{ display: 'flex', gap: 1 }}>
-                <IconButton sx={{ color: 'secondary.main' }}><LinkedInIcon /></IconButton>
+                <IconButton 
+                  sx={{ color: 'secondary.main' }}
+                  onClick={() => window.open('https://www.linkedin.com/in/mohit-baliyan-8a1262193?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', '_blank')}
+                >
+                  <LinkedInIcon />
+                </IconButton>
                 <IconButton sx={{ color: 'secondary.main' }}><FacebookIcon /></IconButton>
+                <IconButton sx={{ color: 'secondary.main' }}
+                onClick={() => window.open('https://x.com/MOHITKUMAR71333?t=43fuQLvqFaCBCE9hgZU0Vw&s=08', '_blank')}><XIcon /></IconButton>
                 <IconButton sx={{ color: 'secondary.main' }}><InstagramIcon /></IconButton>
               </Box>
               <Typography variant="caption" sx={{ mt: 2, display: 'block', color: 'text.secondary' }}>
-                NMLS Corporate ID#254196 California Corp. Broker's License# 01295714 Colorado Division of Real Estate, ID#100009815 Florida Office of Financial Regulation, ID#0703894
+              CIN/LLPIN/FCRN U70200UP2025PTC221767
+              Company No. 221767
               </Typography>
             </Grid>
           </Grid>
           <Divider sx={{ my: 4 }} />
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
             <Typography variant="body2" color="text.secondary">
-              ©2025 Baliyan Fintel Services. All Rights Reserved.
+              ©2025 Baliyan Fintech Services. All Rights Reserved.
             </Typography>
             <Box sx={{ display: 'flex', gap: 2 }}>
               <FooterLink href="#">Terms Of Services</FooterLink>

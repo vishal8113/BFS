@@ -1,10 +1,10 @@
 import React from 'react';
 import { Fab, Box, Tooltip } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import XIcon from '@mui/icons-material/X';
 
 const SocialMediaSidebar = () => {
   return (
@@ -25,8 +25,8 @@ const SocialMediaSidebar = () => {
     >
       {[
         { icon: <FacebookIcon />, label: 'Facebook', url: 'https://facebook.com' },
-        { icon: <TwitterIcon />, label: 'Twitter', url: 'https://twitter.com' },
-        { icon: <LinkedInIcon />, label: 'LinkedIn', url: 'https://linkedin.com' },
+        { icon: <XIcon />, label: 'X', url: 'https://x.com/MOHITKUMAR71333?t=43fuQLvqFaCBCE9hgZU0Vw&s=08' },
+        { icon: <LinkedInIcon />, label: 'LinkedIn', url: 'https://www.linkedin.com/in/mohit-baliyan-8a1262193?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
         { icon: <InstagramIcon />, label: 'Instagram', url: 'https://instagram.com' },
         { icon: <WhatsAppIcon />, label: 'WhatsApp', url: 'https://wa.me/1234567890' },
       ].map(({ icon, label, url }, index) => (
