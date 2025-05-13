@@ -153,9 +153,24 @@ const services = [
 const teamMembers = [
   {
     name: 'Mohit Baliyan',
-    position: 'Director',
+    position: 'CEO',
     image: '/website_rw.jpg',
   },
+  {
+    name:'Rupal Baliyan',
+    position:'Director',
+    image:'./director_img.jpg'
+  },
+  {
+    name:'Anil Baliyan',
+    position:'Marketing Manager',
+    image:'./m_manager.jpg'
+  },
+  {
+    name:'Deepa Rani',
+    position:'HR Manager',
+    image:'./hr_manager.jpg'
+  }
 ];
 
 const ContactSection = styled(Section)(({ theme }) => ({
@@ -386,6 +401,7 @@ const Home = () => {
                     <li>Exajoule</li>
                     <li>Pronetin</li>
                     <li>IndiaMart</li>
+                    <li>TurtleMint</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -519,7 +535,17 @@ const Home = () => {
                   <ContactIcon>
                     <LocationOnIcon />
                     <Box>
-                      <Typography variant="h6" gutterBottom>Address</Typography>
+                      <Typography variant="h6" gutterBottom>Registered Office Address</Typography>
+                      <Typography paragraph sx={{ color: 'rgba(255,255,255,0.8)' }}>
+                      Balaji complex Sundarpuram, Golbag chauraha, <br/> Moradabad road, Bijnor 246701,<br/> Uttar Pradesh India
+                      </Typography>
+                    </Box>
+                  </ContactIcon>
+                  <Divider sx={{ my: 3, bgcolor: 'rgba(255,255,255,0.2)' }} />
+                  <ContactIcon>
+                    <LocationOnIcon />
+                    <Box>
+                      <Typography variant="h6" gutterBottom>Corporate Address</Typography>
                       <Typography paragraph sx={{ color: 'rgba(255,255,255,0.8)' }}>
                       Rahul Plaza Bhaniyawala, <br />Dehradun, Uttarakhand<br />India
                       </Typography>
@@ -600,10 +626,28 @@ const Home = () => {
                   </Typography>
                 </Box>
               </Box>
-              <Typography variant="body1" sx={{ mb: 2, color: 'text.secondary' }}>
+              <Typography variant="body1" sx={{ mb: 2, color: 'rgba(255,255,255,0.9)', fontWeight: 400 }}>
                 Baliyan Fintel Services is committed to assisting you with all your business and finance needs. Contact us today to get started on a customized solution. We look forward to working with you!
               </Typography>
             </Grid>
+            <Box sx={{ mt: 3 }}>
+                <FooterTitle>Company Information</FooterTitle>
+                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', mb: 1 }}>
+                  CIN/LLPIN/FCRN: U70200UP2025PTC221767
+                </Typography>
+                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', mb: 2 }}>
+                  Company No.: 221767
+                </Typography>
+                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', fontWeight: 500, mb: 1 }}>
+                  Directors:
+                </Typography>
+                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', mb: 0.5 }}>
+                  Director 1: Mohit Baliyan
+                </Typography>
+                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)' }}>
+                  Director 2: Rupal Kumar
+                </Typography>
+              </Box>
             <Grid item xs={12} md={2} lg={2}>
               <FooterTitle>LINKS</FooterTitle>
               <FooterLink href="#about">About</FooterLink>
@@ -623,8 +667,11 @@ const Home = () => {
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                 <LocationOnIcon sx={{ mr: 1, color: 'secondary.main' }} />
-                <Typography variant="body2">Corporate address: Rahul Plaza Bhaniyawala, Dehradun, Uttarakhand, India, CIN/LLPIN/FCRN U70200UP2025PTC221767
-                Company No. 221767</Typography>
+                <Typography variant="body2">Registered Office: Balaji complex Sundarpuram, Golbag chauraha, Moradabad road Bijnor 246701, Uttar Pradesh, India</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                <LocationOnIcon sx={{ mr: 1, color: 'secondary.main' }} />
+                <Typography variant="body2">Corporate Office: Rahul Plaza Bhaniyawala, Dehradun, Uttarakhand, India</Typography>
               </Box>
             </Grid>
             <Grid item xs={12} md={3} lg={4}>
@@ -647,7 +694,7 @@ const Home = () => {
                 onClick={() => window.open('https://x.com/MOHITKUMAR71333?t=43fuQLvqFaCBCE9hgZU0Vw&s=08', '_blank')}><XIcon /></IconButton>
                 <IconButton sx={{ color: 'secondary.main' }}><InstagramIcon /></IconButton>
               </Box>
-
+              
             </Grid>
           </Grid>
           <Divider sx={{ my: 4, bgcolor: 'rgba(255,255,255,0.1)' }} />
