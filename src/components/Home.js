@@ -623,7 +623,8 @@ const Home = () => {
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                 <LocationOnIcon sx={{ mr: 1, color: 'secondary.main' }} />
-                <Typography variant="body2">Corporate address: Rahul Plaza Bhaniyawala, dehradun, uttrakhand, india</Typography>
+                <Typography variant="body2">Corporate address: Rahul Plaza Bhaniyawala, Dehradun, Uttarakhand, India, CIN/LLPIN/FCRN U70200UP2025PTC221767
+                Company No. 221767</Typography>
               </Box>
             </Grid>
             <Grid item xs={12} md={3} lg={4}>
@@ -646,10 +647,7 @@ const Home = () => {
                 onClick={() => window.open('https://x.com/MOHITKUMAR71333?t=43fuQLvqFaCBCE9hgZU0Vw&s=08', '_blank')}><XIcon /></IconButton>
                 <IconButton sx={{ color: 'secondary.main' }}><InstagramIcon /></IconButton>
               </Box>
-              <Typography variant="caption" sx={{ mt: 2, display: 'block', color: 'rgba(255,255,255,0.9)', fontSize: '0.9rem', fontWeight: 500 }}>
-              CIN/LLPIN/FCRN U70200UP2025PTC221767
-              Company No. 221767
-              </Typography>
+
             </Grid>
           </Grid>
           <Divider sx={{ my: 4, bgcolor: 'rgba(255,255,255,0.1)' }} />
