@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Box,
   Container,
@@ -31,6 +31,7 @@ import Slide from '@mui/material/Slide';
 import CloseIcon from '@mui/icons-material/Close';
 import SocialMediaSidebar from "./SocialMediaSideBar"
 import XIcon from '@mui/icons-material/X';
+import emailjs from '@emailjs/browser';
 
 const HeroSection = styled(Box)(({ theme }) => ({
   background: 'linear-gradient(135deg, #2C3E50 0%, #3498DB 100%)',
@@ -246,6 +247,113 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 const Home = () => {
   const [openConsult, setOpenConsult] = React.useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ success: false, message: '' });
+  const [newsletterStatus, setNewsletterStatus] = useState({ success: false, message: '' });
+  const formRef = useRef();
+  const newsletterFormRef = useRef();
+  const consultFormRef = useRef();
+  const [consultStatus, setConsultStatus] = useState({ success: false, message: '' });
+
+  // Initialize EmailJS
+  React.useEffect(() => {
+    emailjs.init("K1fWtsZWLq7bnq7ds");
+  }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+
+    try {
+      const result = await emailjs.sendForm(
+        'service_ophun4g',
+        'template_pbn7x6i', // You'll need to create a new template for newsletter
+        newsletterFormRef.current
+      );
+
+      if (result.text === 'OK') {
+        setNewsletterStatus({
+          success: true,
+          message: 'Successfully subscribed to newsletter!'
+        });
+        setNewsletterEmail('');
+      } else {
+        throw new Error(`Failed to subscribe: ${result.text}`);
+      }
+    } catch (error) {
+      console.error('Newsletter Error:', error);
+      setNewsletterStatus({
+        success: false,
+        message: 'Failed to subscribe. Please try again later.'
+      });
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ success: false, message: '' });
+
+    try {
+      const result = await emailjs.sendForm(
+        'service_ophun4g',
+        'template_e9l7atn',
+        formRef.current
+      );
+
+      if (result.text === 'OK') {
+        setSubmitStatus({
+          success: true,
+          message: 'Message sent successfully! We will get back to you soon.'
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error(`Failed to send message: ${result.text}`);
+      }
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setSubmitStatus({
+        success: false,
+        message: `Failed to send message: ${error.message || 'Please try again later.'}`
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleConsultSubmit = async (e) => {
+    e.preventDefault();
+    setConsultStatus({ success: false, message: '' });
+    try {
+      const result = await emailjs.sendForm(
+        'service_ophun4g', // your service ID
+        'template_e9l7atn', // replace with your consultation template ID
+        consultFormRef.current
+      );
+      if (result.text === 'OK') {
+        setConsultStatus({ success: true, message: 'Consultation request sent successfully!' });
+        consultFormRef.current.reset();
+      } else {
+        throw new Error('Failed to send consultation request');
+      }
+    } catch (error) {
+      setConsultStatus({ success: false, message: 'Failed to send. Please try again later.' });
+    }
+  };
 
   const handleOpenConsult = () => setOpenConsult(true);
   const handleCloseConsult = () => setOpenConsult(false);
@@ -310,40 +418,49 @@ const Home = () => {
           </IconButton>
         </DialogTitle>
         <DialogContent>
-          <ConsultationForm component="form">
+          <ConsultationForm component="form" ref={consultFormRef} onSubmit={handleConsultSubmit}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-                <TextField label="First Name" fullWidth required variant="outlined" />
+                <TextField label="First Name" name="first_name" fullWidth required variant="outlined" />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField label="Last Name" fullWidth required variant="outlined" />
+                <TextField label="Last Name" name="last_name" fullWidth required variant="outlined" />
               </Grid>
               <Grid item xs={12}>
-                <TextField label="Email" type="email" fullWidth required variant="outlined" />
+                <TextField label="Email" name="email" type="email" fullWidth required variant="outlined" />
               </Grid>
               <Grid item xs={12}>
-                <TextField label="Phone" type="tel" fullWidth required variant="outlined" />
+                <TextField label="Phone" name="phone" type="tel" fullWidth required variant="outlined" />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField label="Preferred Date" type="date" fullWidth required InputLabelProps={{ shrink: true }} variant="outlined" />
+                <TextField label="Preferred Date" name="date" type="date" fullWidth required InputLabelProps={{ shrink: true }} variant="outlined" />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField label="Preferred Time" type="time" fullWidth required InputLabelProps={{ shrink: true }} variant="outlined" />
+                <TextField label="Preferred Time" name="time" type="time" fullWidth required InputLabelProps={{ shrink: true }} variant="outlined" />
               </Grid>
               <Grid item xs={12}>
-                <TextField label="Message" multiline rows={3} fullWidth variant="outlined" />
+                <TextField label="Message" name="message" multiline rows={3} fullWidth variant="outlined" />
               </Grid>
+              <Grid item xs={12}>
+                <DialogActions sx={{ px: 0, pb: 0 }}>
+                  <Button onClick={handleCloseConsult} color="inherit" variant="outlined" sx={{ borderRadius: 2 }}>
+                    Cancel
+                  </Button>
+                  <Button type="submit" color="secondary" variant="contained" sx={{ borderRadius: 2 }}>
+                    Book Consultation
+                  </Button>
+                </DialogActions>
+              </Grid>
+              {consultStatus.message && (
+                <Grid item xs={12}>
+                  <Typography color={consultStatus.success ? 'success.main' : 'error.main'} sx={{ mt: 2 }}>
+                    {consultStatus.message}
+                  </Typography>
+                </Grid>
+              )}
             </Grid>
           </ConsultationForm>
         </DialogContent>
-        <DialogActions sx={{ px: 3, pb: 2 }}>
-          <Button onClick={handleCloseConsult} color="inherit" variant="outlined" sx={{ borderRadius: 2 }}>
-            Cancel
-          </Button>
-          <Button type="submit" color="secondary" variant="contained" sx={{ borderRadius: 2 }}>
-            Book Consultation
-          </Button>
-        </DialogActions>
       </Dialog>
 
       {/* Services Section */}
@@ -495,32 +612,58 @@ const Home = () => {
           <Grid container spacing={6} alignItems="stretch">
             <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column' }}>
               <ContactFormWrapper>
-                <ContactFormStyled elevation={3}>
-                  <Typography variant="h5" gutterBottom sx={{ color: 'primary.main', mb: 3 }}>
+                <ContactFormStyled component="form" ref={formRef} onSubmit={handleSubmit}>
+                  <Typography variant="h5" gutterBottom>
                     Send us a Message
                   </Typography>
-                  <Grid container spacing={3}>
-                    <Grid item xs={12} sm={6}>
-                      <TextField required fullWidth label="First Name" variant="outlined" />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <TextField required fullWidth label="Last Name" variant="outlined" />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <TextField required fullWidth label="Email" type="email" variant="outlined" />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <TextField required fullWidth label="Subject" variant="outlined" />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <TextField required fullWidth label="Message" multiline rows={4} variant="outlined" />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Button variant="contained" color="primary" size="large" fullWidth sx={{ py: 1.5, fontSize: '1.1rem', textTransform: 'none', borderRadius: '8px' }}>
-                        Send Message
-                      </Button>
-                    </Grid>
-                  </Grid>
+                  <TextField
+                    fullWidth
+                    label="Name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    margin="normal"
+                    required
+                  />
+                  <TextField
+                    fullWidth
+                    label="Email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    margin="normal"
+                    required
+                  />
+                  <TextField
+                    fullWidth
+                    label="Message"
+                    name="message"
+                    multiline
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    margin="normal"
+                    required
+                  />
+                  {submitStatus.message && (
+                    <Typography
+                      color={submitStatus.success ? 'success.main' : 'error.main'}
+                      sx={{ mt: 2 }}
+                    >
+                      {submitStatus.message}
+                    </Typography>
+                  )}
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    endIcon={<SendIcon />}
+                    disabled={isSubmitting}
+                    sx={{ mt: 2 }}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </Button>
                 </ContactFormStyled>
               </ContactFormWrapper>
             </Grid>
@@ -674,12 +817,33 @@ const Home = () => {
             </Grid>
             <Grid item xs={12} md={3} lg={4}>
               <FooterTitle>Subscribe to our newsletter</FooterTitle>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <NewsletterInput placeholder="Enter your email address" />
-                <NewsletterButton>
+              <Box 
+                component="form" 
+                ref={newsletterFormRef}
+                onSubmit={handleNewsletterSubmit}
+                sx={{ display: 'flex', alignItems: 'center', mb: 2 }}
+              >
+                <NewsletterInput 
+                  name="email"
+                  placeholder="Enter your email address"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  type="email"
+                  required
+                />
+                <NewsletterButton type="submit">
                   <SendIcon />
                 </NewsletterButton>
               </Box>
+              {newsletterStatus.message && (
+                <Typography
+                  variant="body2"
+                  color={newsletterStatus.success ? 'success.main' : 'error.main'}
+                  sx={{ mt: 1 }}
+                >
+                  {newsletterStatus.message}
+                </Typography>
+              )}
               <Box sx={{ display: 'flex', gap: 1 }}>
                 <IconButton 
                   sx={{ color: 'secondary.main' }}
@@ -692,7 +856,6 @@ const Home = () => {
                 onClick={() => window.open('https://x.com/MOHITKUMAR71333?t=43fuQLvqFaCBCE9hgZU0Vw&s=08', '_blank')}><XIcon /></IconButton>
                 <IconButton sx={{ color: 'secondary.main' }}><InstagramIcon /></IconButton>
               </Box>
-              
             </Grid>
           </Grid>
           <Divider sx={{ my: 4, bgcolor: 'rgba(255,255,255,0.1)' }} />
