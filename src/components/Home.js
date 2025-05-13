@@ -141,12 +141,12 @@ const services = [
   {
     title: 'BPO',
     description: 'Our BPO (Business Process Outsourcing) services help companies streamline operations, reduce costs, and focus on core business activities. We deliver high-quality, scalable solutions tailored to your needs.',
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: '/bpo_img.jpeg',
   },
   {
     title: 'Financial Services',
     description: 'We offer a comprehensive suite of financial services including insurance, mutual funds, loans, and credit solutions to help you achieve your financial goals with confidence.',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: './finance_img.jpeg',
   },
 ];
 
@@ -265,7 +265,7 @@ const Home = () => {
             <Grid item xs={12} md={6}>
               <Box
                 component="img"
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                src="./first_img.jpeg"
                 alt="Hero"
                 sx={{
                   width: '100%',
