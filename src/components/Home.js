@@ -615,7 +615,7 @@ const Home = () => {
               <FooterTitle>CONTACT US</FooterTitle>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                 <PhoneIcon sx={{ mr: 1, color: 'secondary.main' }} />
-                <Typography variant="body2">+91 8057883947</Typography>
+                <Typography variant="body2">+91 9368664563</Typography>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                 <EmailIcon sx={{ mr: 1, color: 'secondary.main' }} />
