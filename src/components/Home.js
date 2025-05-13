@@ -13,8 +13,6 @@ import {
   Divider,
   Avatar,
   IconButton,
-  AppBar,
-  Toolbar,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
