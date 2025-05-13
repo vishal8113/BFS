@@ -250,6 +250,7 @@ const Home = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: ''
   });
   const [newsletterEmail, setNewsletterEmail] = useState('');
@@ -320,7 +321,7 @@ const Home = () => {
           success: true,
           message: 'Message sent successfully! We will get back to you soon.'
         });
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
         throw new Error(`Failed to send message: ${result.text}`);
       }
@@ -631,6 +632,16 @@ const Home = () => {
                     name="email"
                     type="email"
                     value={formData.email}
+                    onChange={handleInputChange}
+                    margin="normal"
+                    required
+                  />
+                  <TextField
+                    fullWidth
+                    label="Phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
                     onChange={handleInputChange}
                     margin="normal"
                     required
