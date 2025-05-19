@@ -1,0 +1,7 @@
+const WebDown = () => {
+    return(
+        <h1>!!!</h1>
+    )
+}
+
+export default WebDown;
