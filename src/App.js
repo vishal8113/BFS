@@ -30,7 +30,7 @@ const theme = createTheme({
     fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
       fontWeight: 700,
-      fontSize: '3.5rem',
+      fontSize: '3.5rem'
     },
     h2: {
       fontWeight: 600,
